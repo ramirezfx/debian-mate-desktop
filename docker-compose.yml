@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mate-desktop-lmu:
+    shm_size: "2gb"
+    environment:
+    - USER=lorenzomueller
+    - PASSWORD=CommanDeR
+    cap_add:
+    - SYS_PTRACE
+    image: ramirezfx/debian-arm64-mate:bullseye
+    restart: always
+    stdin_open: true
+    tty: true
+    ports:
+    - 4001:4000/tcp
+    - 2222:22/TCP
