@@ -37,7 +37,8 @@ RUN apt-get update && \
     env DEBIAN_FRONTEND=noninteractive apt-get install -y \
       mesa-utils \
       mesa-utils-extra \
-      libxv1
+      libxv1 \
+      cups
 
 ENV LANG de_AT.UTF-8
 RUN echo $LANG UTF-8 > /etc/locale.gen && \
@@ -53,7 +54,7 @@ RUN env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommend
       mate-applets \
       mate-notification-daemon \
       mate-system-monitor \
-      mate-utils curl sudo firefox-esr firefox-esr-l10n-de gimp breeze wget pluma meld filezilla mate-calc atril pulseaudio vim
+      mate-utils curl sudo firefox-esr firefox-esr-l10n-de gimp breeze wget pluma meld mate-calc atril pulseaudio vim
       
 # RUN curl -fSL "https://download.nomachine.com/download/7.7/Linux/nomachine_7.7.4_1_amd64.deb" -o nomachine.deb \
 # && echo "${NOMACHINE_MD5} *nomachine.deb" | md5sum -c - \
