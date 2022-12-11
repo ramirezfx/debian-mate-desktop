@@ -60,7 +60,7 @@ RUN env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommend
 # && echo "${NOMACHINE_MD5} *nomachine.deb" | md5sum -c - \
 # && dpkg -i nomachine.deb
 
-RUN wget -O nomachine.deb https://download.nomachine.com/download/8.2/Arm/nomachine_8.2.3_3_arm64.deb && dpkg -i nomachine.deb
+RUN DLLINK=$(wget --save-headers --output-document - https://downloads.nomachine.com/de/download/?id=5 | grep download.nomachine.com | cut -d '"' -f6 | head -1) && wget -O nomachine.deb $DLLINK && dpkg -i nomachine.deb
 
 # RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome-stable_current_amd64.deb
 # RUN apt-get install -y /tmp/google-chrome-stable_current_amd64.deb
