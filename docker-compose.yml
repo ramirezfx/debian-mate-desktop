@@ -3,13 +3,13 @@ services:
   mate-desktop-lmu:
     shm_size: "2gb"
     environment:
-    - USER={{ USERNAME }}
-    - PASSWORD={{ PASSWORD }}
+    - USER=mate
+    - PASSWORD=mate
     cap_add:
     - SYS_PTRACE
-    image: ramirezfx/debian-mate-desktop:{{ VERSION }}
+    image: ramirezfx/debian-mate-desktop:latest-arm64
     restart: always
     stdin_open: true
     tty: true
     ports:
-    - {{ NOMACHINE_PORT }}:4000/tcp
+    - 4001:4000/tcp
